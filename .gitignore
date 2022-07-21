@@ -1,0 +1,7 @@
+# mqt pre-commit lint check files
+.eslintrc.json
+.flake8
+.pre-commit-config-optional.yaml
+.pre-commit-config.yaml
+.pylintrc
+.pylintrc-optional
