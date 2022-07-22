@@ -1,21 +1,25 @@
 {
-    'name': "Open Academy",
+    "name": "open_academy",
 
-    'summary': "Creation of the open academy module.",
+    "summary": "Creation of the open academy module.",
 
-    'description': "Exercise of Building a module",
+    "author": "Jesús Valdez, Vauxoo",
+    "website": "https://github.com/JesusValdez96/open_academy",
 
-    'author': "Jesús Valdez [Vauxoo]",
-    'website': "https://github.com/JesusValdez96/open_academy",
+    "license": "LGPL-3",
 
-    'category': 'Uncategorized',
-    'version': '15.0.1.0.0',
+    "category": "Customizations",
+    "version": "15.0.1.0.0",
 
-    'depends': ['base'],
-
-    'data': [
-        'security/ir.model.access.csv'
+    "depends": [
+        "base",
     ],
 
-    'demo': [],
+    "data": [
+        "security/ir.model.access.csv",
+    ],
+
+    "demo": [
+        "demo/course_demo.xml",
+    ],
 }
