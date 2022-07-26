@@ -1,3 +1,6 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
 # mqt pre-commit lint check files
 .eslintrc.json
 .flake8
@@ -5,3 +8,6 @@
 .pre-commit-config.yaml
 .pylintrc
 .pylintrc-optional
+
+# vscode configuration
+.vscode

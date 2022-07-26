@@ -1,5 +1,5 @@
 {
-    "name": "open_academy",
+    "name": "Open Academy",
 
     "summary": "Creation of the open academy module.",
 
@@ -17,6 +17,7 @@
 
     "data": [
         "security/ir.model.access.csv",
+        "views/course_menu.xml",
     ],
 
     "demo": [
