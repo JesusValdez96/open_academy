@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="course_spanish_demo" model="course">
+        <field name="title">Spanish</field>
+        <field name="description">A basic Spanish course for all ages</field>
+    </record>
+
+    <record id="course_english_demo" model="course">
+        <field name="title">English</field>
+        <field name="description">An intermediate English course where you can improve your speaking skills to travel to the USA</field>
+    </record>
+
+    <record id="course_french_demo" model="course">
+        <field name="title">French</field>
+        <field name="description">An advanced French course where you will obtain the necessary knowledge for your day to day</field>
+    </record>
+</odoo>
