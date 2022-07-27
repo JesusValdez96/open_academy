@@ -17,7 +17,7 @@
 
     "data": [
         "security/ir.model.access.csv",
-        "views/course_menu.xml",
+        "views/course_views.xml",
     ],
 
     "demo": [
