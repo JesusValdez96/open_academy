@@ -18,6 +18,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/course_views.xml",
+        "views/session_views.xml",
     ],
 
     "demo": [
