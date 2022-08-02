@@ -14,8 +14,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="course"/>
-                <field name="instructor"/>
+                <field name="course_id"/>
+                <field name="instructor_id"/>
                 <field name="start_date"/>
                 <field name="number_of_seats"/>
                 <field name="duration"/>
@@ -30,10 +30,10 @@
             <form>
                 <group colspan="4" col="4">
                     <field name="name"/>
-                    <field name="course"/>
+                    <field name="course_id"/>
                 </group>
                 <group colspan="4" col="4">
-                    <field name="instructor"/>
+                    <field name="instructor_id"/>
                     <field name="start_date"/>
                 </group>
                 <group colspan="4" col="4">
@@ -42,7 +42,7 @@
                 </group>
                 <notebook colspan="4">
                     <page string="Attendees">
-                        <field name="attendees"/>
+                        <field name="attendee_ids"/>
                     </page>
                 </notebook>
             </form>
