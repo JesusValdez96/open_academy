@@ -7,4 +7,45 @@
     </record>
 
     <menuitem id="session_menu" name="Sessions" sequence="20" action="session_action"/>
+
+    <record id="session_view_tree" model="ir.ui.view">
+        <field name="name">session.view.tree</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="instructor_id"/>
+                <field name="start_date"/>
+                <field name="number_of_seats"/>
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="session_view_form" model="ir.ui.view">
+        <field name="name">session.view.form</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <form>
+                <group colspan="4" col="4">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                </group>
+                <group colspan="4" col="4">
+                    <field name="instructor_id"/>
+                    <field name="start_date"/>
+                </group>
+                <group colspan="4" col="4">
+                    <field name="number_of_seats"/>
+                    <field name="duration"/>
+                </group>
+                <notebook colspan="4">
+                    <page string="Attendees">
+                        <field name="attendee_ids"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
 </odoo>
