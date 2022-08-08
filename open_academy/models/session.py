@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Session(models.Model):
@@ -6,7 +6,8 @@ class Session(models.Model):
     _description = 'Open Academy Session'
 
     name = fields.Char(required=True)
-    start_date = fields.Date()
+    active = fields.Boolean(default=True)
+    start_date = fields.Date(default=lambda self: fields.Date.today())
     duration = fields.Float()
     number_of_seats = fields.Integer()
     instructor_id = fields.Many2one(
@@ -17,3 +18,12 @@ class Session(models.Model):
     )
     course_id = fields.Many2one("course", required=True)
     attendee_ids = fields.Many2many("res.partner", string="Attendees")
+    taken_seats = fields.Integer(compute="_compute_taken_seats", store=True)
+
+    @api.depends("number_of_seats", "attendee_ids")
+    def _compute_taken_seats(self):
+        for record in self:
+            taken_seats = 0
+            if record.number_of_seats > 0:
+                taken_seats = len(record.attendee_ids) * 100 / record.number_of_seats
+            record.taken_seats = taken_seats
