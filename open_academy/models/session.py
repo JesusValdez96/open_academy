@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import _, api, fields, models
 
 
 class Session(models.Model):
@@ -27,3 +27,20 @@ class Session(models.Model):
             if record.number_of_seats > 0:
                 taken_seats = len(record.attendee_ids) * 100 / record.number_of_seats
             record.taken_seats = taken_seats
+
+    @api.onchange("number_of_seats", "attendee_ids")
+    def onchange_seats(self):
+        if self.number_of_seats < 0:
+            return {
+                "warning": {
+                    "title": _("Warning"),
+                    "message": _("Number of seats cannot be negative")
+                }
+            }
+        if self.number_of_seats < len(self.attendee_ids):
+            return {
+                "warning": {
+                    "title": _("Warning"),
+                    "message": _("Number of attendees exceeds the number of seats")
+                }
+            }
