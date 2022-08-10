@@ -1,4 +1,5 @@
 from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class Session(models.Model):
@@ -44,3 +45,9 @@ class Session(models.Model):
                     "message": _("Number of attendees exceeds the number of seats")
                 }
             }
+
+    @api.constrains("attendee_ids")
+    def _check_instructor(self):
+        for record in self:
+            if record.instructor_id in record.attendee_ids:
+                raise ValidationError(_("The instructor cannot be an attendee"))
