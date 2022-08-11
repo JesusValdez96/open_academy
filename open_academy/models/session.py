@@ -1,3 +1,4 @@
+from math import ceil
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -20,6 +21,8 @@ class Session(models.Model):
     course_id = fields.Many2one("course", required=True)
     attendee_ids = fields.Many2many("res.partner", string="Attendees")
     taken_seats = fields.Integer(compute="_compute_taken_seats", store=True)
+    lasting_days = fields.Integer(compute="_compute_lasting_days", store=True)
+    attendees_count = fields.Integer(compute="_compute_attendees_count", store=True)
 
     @api.depends("number_of_seats", "attendee_ids")
     def _compute_taken_seats(self):
@@ -28,6 +31,17 @@ class Session(models.Model):
             if record.number_of_seats > 0:
                 taken_seats = len(record.attendee_ids) * 100 / record.number_of_seats
             record.taken_seats = taken_seats
+
+    @api.depends("start_date", "duration")
+    def _compute_lasting_days(self):
+        for record in self:
+            end_date = fields.Date.add(record.start_date, days=ceil(record.duration/24))
+            record.lasting_days = (end_date - record.start_date).days
+
+    @api.depends("attendee_ids")
+    def _compute_attendees_count(self):
+        for record in self:
+            record.attendees_count = len(record.attendee_ids)
 
     @api.onchange("number_of_seats", "attendee_ids")
     def onchange_seats(self):

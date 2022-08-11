@@ -3,7 +3,7 @@
     <record id="session_action" model="ir.actions.act_window">
         <field name="name">Sessions</field>
         <field name="res_model">session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar,graph,kanban</field>
     </record>
 
     <menuitem id="session_menu" name="Sessions" sequence="20" action="session_action"/>
@@ -12,15 +12,17 @@
         <field name="name">session.view.tree</field>
         <field name="model">session</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-info="5>lasting_days" decoration-danger="lasting_days>15">
                 <field name="name"/>
                 <field name="course_id"/>
                 <field name="instructor_id"/>
                 <field name="start_date"/>
+                <field name="lasting_days"/>
                 <field name="duration"/>
                 <field name="number_of_seats"/>
                 <field name="taken_seats" widget="progressbar"/>
                 <field name="active"/>
+                <field name="attendees_count"/>
             </tree>
         </field>
     </record>
@@ -50,6 +52,70 @@
                     </page>
                 </notebook>
             </form>
+        </field>
+    </record>
+
+    <record id="session_view_calendar" model="ir.ui.view">
+        <field name="name">session.view.calendar</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <calendar string="Sessions" date_start="start_date" color="name" date_delay="duration">
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="instructor_id"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="number_of_seats"/>
+                <field name="taken_seats" widget="progressbar"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="session_view_graph" model="ir.ui.view">
+        <field name="name">session.view.graph</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <graph string="Number of attendees by Course" type="bar">
+                <field name="course_id"/>
+                <field name="attendees_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="session_view_kanban" model="ir.ui.view">
+        <field name="name">session.view.kanban</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban" default_group_by="course_id">
+                <field name="name"/>
+                <field name="instructor_id"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </li>
+                                    <li>
+                                        Instructor: <field name="instructor_id"/>
+                                    </li>
+                                    <li>
+                                        Start Date: <field name="start_date"/>
+                                    </li>
+                                    <li>
+                                        Duration: <field name="duration"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 </odoo>

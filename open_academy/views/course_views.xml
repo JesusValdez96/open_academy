@@ -4,6 +4,7 @@
         <field name="name">Courses</field>
         <field name="res_model">course</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_my_courses': 1}</field>
     </record>
 
     <menuitem id="course_menu" name="Courses" sequence="10" action="course_action"/>
@@ -34,7 +35,7 @@
                         <field name="description" nolabel="1" />
                     </page>
                     <page string="Sessions">
-                        <field name="session_ids"  nolabel="1"/>
+                        <field name="session_ids" nolabel="1"/>
                     </page>
                 </notebook>
             </form>
@@ -48,6 +49,10 @@
             <search>
                 <field name="name"/>
                 <field name="description"/>
+                <filter name="my_courses" string="My Courses" domain="[('responsible_user_id', '=', uid)]"/>
+                <group string="Group By">
+                    <filter name="group_by_responsible_user" string="Responsible User" context="{'group_by': 'responsible_user_id'}"/>
+                </group>
             </search>
         </field>
     </record>
