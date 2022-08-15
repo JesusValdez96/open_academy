@@ -17,6 +17,7 @@
                 <field name="course_id"/>
                 <field name="instructor_id"/>
                 <field name="start_date"/>
+                <field name="end_date"/>
                 <field name="lasting_days"/>
                 <field name="duration"/>
                 <field name="number_of_seats"/>
@@ -64,6 +65,7 @@
                 <field name="course_id"/>
                 <field name="instructor_id"/>
                 <field name="start_date"/>
+                <field name="end_date"/>
                 <field name="duration"/>
                 <field name="number_of_seats"/>
                 <field name="taken_seats" widget="progressbar"/>
@@ -90,6 +92,7 @@
                 <field name="name"/>
                 <field name="instructor_id"/>
                 <field name="start_date"/>
+                <field name="end_date"/>
                 <field name="duration"/>
                 <templates>
                     <t t-name="kanban-box">
@@ -106,6 +109,9 @@
                                     </li>
                                     <li>
                                         Start Date: <field name="start_date"/>
+                                    </li>
+                                    <li>
+                                        End Date: <field name="end_date"/>
                                     </li>
                                     <li>
                                         Duration: <field name="duration"/>

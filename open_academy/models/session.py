@@ -10,6 +10,7 @@ class Session(models.Model):
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
     start_date = fields.Date(default=lambda self: fields.Date.today())
+    end_date = fields.Date(compute="_compute_end_date", store=True)
     duration = fields.Float()
     number_of_seats = fields.Integer()
     instructor_id = fields.Many2one(
@@ -33,10 +34,14 @@ class Session(models.Model):
             record.taken_seats = taken_seats
 
     @api.depends("start_date", "duration")
+    def _compute_end_date(self):
+        for record in self:
+            record.end_date = fields.Date.add(record.start_date, days=ceil(record.duration/24))
+
+    @api.depends("start_date", "end_date")
     def _compute_lasting_days(self):
         for record in self:
-            end_date = fields.Date.add(record.start_date, days=ceil(record.duration/24))
-            record.lasting_days = (end_date - record.start_date).days
+            record.lasting_days = (record.end_date - record.start_date).days
 
     @api.depends("attendee_ids")
     def _compute_attendees_count(self):
