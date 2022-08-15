@@ -3,3 +3,4 @@ manager_open_academy_session,manager_open_academy_session,model_session,open_aca
 manager_open_academy_course,manager_open_academy_course,model_course,open_academy_group_manager,1,1,1,1
 read_open_academy_course,read_open_academy_course,model_course,base.group_user,1,0,0,0
 read_open_academy_session,read_open_academy_session,model_session,base.group_user,1,0,0,0
+access_open_academy_add_attendee_sessions,access_open_academy_add_attendee_sessions,model_add_attendee_sessions,base.group_user,1,1,1,1
