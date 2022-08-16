@@ -13,6 +13,7 @@
 
     "depends": [
         "base",
+        "board",
     ],
 
     "data": [
@@ -20,6 +21,7 @@
         "security/ir_rule.xml",
         "security/ir.model.access.csv",
         "views/course_views.xml",
+        "views/session_dashboard.xml",
         "views/session_views.xml",
         "views/res_partner_views.xml",
         "wizards/add_attendee_sessions_views.xml",
