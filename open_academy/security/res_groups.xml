@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="open_academy_group_manager" model="res.groups">
+        <field name="name">OpenAcademy / Manager</field>
+    </record>
+</odoo>
