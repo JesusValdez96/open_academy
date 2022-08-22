@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="add_attendee_sessions_action" model="ir.actions.act_window">
+        <field name="name">Add attendees to Sessions</field>
+        <field name="res_model">add.attendee.sessions</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="open_academy.model_session"/>
+    </record>
+
+    <record id="add_attendee_sessions_view_form" model="ir.ui.view">
+        <field name="name">add.attendee.sessions.view.form</field>
+        <field name="model">add.attendee.sessions</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="session_ids" widget="many2many_tags"/>
+                    <field name="attendee_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button name="add_attendees" type="object" string="Save" class="oe_highlight"/>
+                    <button special="cancel" string="Discard"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
