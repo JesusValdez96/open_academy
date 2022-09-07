@@ -7,13 +7,23 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-22 16:15+0000\n"
-"PO-Revision-Date: 2022-08-22 16:15+0000\n"
+"PO-Revision-Date: 2022-09-06 14:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: open_academy
+#: model_terms:ir.ui.view,arch_db:open_academy.session_report
+msgid "<strong>End Date:</strong>"
+msgstr "<strong>Fecha de fin:</strong>"
+
+#. module: open_academy
+#: model_terms:ir.ui.view,arch_db:open_academy.session_report
+msgid "<strong>Start Date:</strong>"
+msgstr "<strong>Fecha de inicio:</strong>"
 
 #. module: open_academy
 #: model:ir.model.fields,field_description:open_academy.field_session__active
@@ -37,6 +47,7 @@ msgstr "Asistente"
 
 #. module: open_academy
 #: model:ir.model.fields,field_description:open_academy.field_session__attendee_ids
+#: model_terms:ir.ui.view,arch_db:open_academy.session_report
 #: model_terms:ir.ui.view,arch_db:open_academy.session_view_form
 msgid "Attendees"
 msgstr "Asistentes"
@@ -126,6 +137,21 @@ msgid "Duration:"
 msgstr "Duración:"
 
 #. module: open_academy
+#: model_terms:ir.ui.view,arch_db:open_academy.session_report
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: open_academy
+#: model:ir.model.fields,field_description:open_academy.field_session__end_date
+msgid "End Date"
+msgstr "Fecha de fin"
+
+#. module: open_academy
+#: model_terms:ir.ui.view,arch_db:open_academy.session_view_kanban
+msgid "End Date:"
+msgstr "Fecha de fin:"
+
+#. module: open_academy
 #: model_terms:ir.ui.view,arch_db:open_academy.course_view_search
 msgid "Group By"
 msgstr "Agrupar Por"
@@ -197,6 +223,7 @@ msgstr "Mis Cursos"
 #. module: open_academy
 #: model:ir.model.fields,field_description:open_academy.field_course__name
 #: model:ir.model.fields,field_description:open_academy.field_session__name
+#: model_terms:ir.ui.view,arch_db:open_academy.session_report
 msgid "Name"
 msgstr "Nombre"
 
@@ -238,6 +265,11 @@ msgid "OpenAcademy / Manager"
 msgstr "OpenAcademy / Administrador"
 
 #. module: open_academy
+#: model_terms:ir.ui.view,arch_db:open_academy.session_report
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: open_academy
 #: model:ir.model.fields,field_description:open_academy.field_course__responsible_user_id
 #: model_terms:ir.ui.view,arch_db:open_academy.course_view_search
 msgid "Responsible User"
@@ -254,6 +286,11 @@ msgstr "Guardar"
 #: model:ir.model.fields,field_description:open_academy.field_res_users__session_ids
 msgid "Session"
 msgstr "Sesión"
+
+#. module: open_academy
+#: model:ir.actions.report,name:open_academy.report_session
+msgid "Session Report"
+msgstr "Reporte de Sesión"
 
 #. module: open_academy
 #: model:ir.actions.act_window,name:open_academy.session_action

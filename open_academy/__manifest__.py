@@ -23,6 +23,7 @@
         "views/session_views.xml",
         "views/res_partner_views.xml",
         "wizards/add_attendee_sessions_views.xml",
+        "report/session_report.xml",
     ],
 
     "demo": [
